@@ -40,12 +40,12 @@ const registerUser = asyncHandler( async (req, res) => {
   const token = generateToken(user._id);
 
   // Send HTTP-only cookie
-  res.cookie("accessToken", token, {
+  res.cookie("token", token, {
     path: '/',
     httpOnly: true,
     expires: new Date(Date.now() + 1000 * 86400),    // 1day
     sameSite: "none",
-    secure: true
+    secure: false
   });
 
   if (user) {
@@ -84,12 +84,12 @@ const loginUser = asyncHandler( async (req, res) => {
   const token = generateToken(user._id);
 
   // Send HTTP-only cookie
-  res.cookie("accessToken", token, {
+  res.cookie("token", token, {
     path: '/',
     httpOnly: true,
     expires: new Date(Date.now() + 1000 * 86400),    // 1day
     sameSite: "none",
-    secure: true
+    secure: false
   });
 
   if (user && passwordIsCorrect) {
@@ -105,15 +105,30 @@ const loginUser = asyncHandler( async (req, res) => {
 
 // Logout User
 const logout = asyncHandler( async (req, res) => {
-  res.cookie("accessToken", "", {
+  res.cookie("token", "", {
     path: '/',
     httpOnly: true,
     expires: new Date(0),    // 1day
     sameSite: "none",
-    secure: true
+    secure: false
   });
-  
+
   return res.status(200).json({message: "Successfully Logged Out"});
 });
 
-module.exports = { registerUser, loginUser, logout };
+// Get User Data
+const getUser = asyncHandler( async (req, res) => {
+  const user = await User.findById(req.user._id);
+
+  if (user) {
+    const { _id, name, email, photo, phone, bio } = user;
+    res.status(200).json({
+      _id, name, email, photo, phone, bio
+    });
+  } else {
+    res.status(400);
+    throw new Error("User Not Found");
+  }
+});
+
+module.exports = { registerUser, loginUser, logout, getUser };
