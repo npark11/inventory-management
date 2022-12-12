@@ -109,14 +109,20 @@ const loginUser = asyncHandler(async (req, res) => {
 
 // Logout User - Not working
 const logout = asyncHandler(async (req, res) => {
-  res.cookie("token", "", {
-    path: '/',
-    httpOnly: true,
-    expires: new Date(0),    // 1day
-    sameSite: "none",
-    secure: false
-  });
-  return res.status(200).json({ message: "Successfully Logged Out" });
+  // res.cookie("token", "", {
+  //   path: '/',
+  //   httpOnly: true,
+  //   expires: new Date(0),    // 1day
+  //   sameSite: "none",
+  //   secure: false
+  // });
+  // return res.status(200).json({ message: "Successfully Logged Out" });
+
+  res.clearCookie("accessToken", {
+    secure: true,
+    sameSite: "none"
+  }).status(200).json({ message: "Successfully Logged Out" })
+
 });
 
 // Get User Data
