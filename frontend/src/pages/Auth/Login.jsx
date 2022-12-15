@@ -15,8 +15,8 @@ const Login = () => {
           <h2>Login</h2>
 
           <form>
-            <input type="text" placeholder="Email" required name="email" />
-            <input type="password" placeholder="password" required name="password" />
+            <input type="email" placeholder="Email" required name="email" />
+            <input type="password" placeholder="Password" required name="password" />
             <button type="submit" className="--btn --btn-primary --btn-block">Login</button>
           </form>
           <Link to='/forgot'>Forgot Password</Link>
@@ -27,7 +27,6 @@ const Login = () => {
           </span>
         </div>
       </Card>
-
     </div>
   )
 }
