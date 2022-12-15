@@ -21,11 +21,13 @@ const Register = () => {
             <input type="password" placeholder="Confirm Password" required name="password" />
             <button type="submit" className="--btn --btn-primary --btn-block">Register</button>
           </form>
+
           <span className={styles.register}>
             <Link to='/'>Home</Link>
             <p> &nbsp; Already have an account? &nbsp;</p>
             <Link to='/login'>Login</Link>
           </span>
+          
         </div>
       </Card>
     </div>
