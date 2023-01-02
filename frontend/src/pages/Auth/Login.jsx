@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Auth.module.scss'
 import { BiLogIn } from 'react-icons/bi'
-import Card from '../../component/Card/Card'
+import Card from '../../components/Card/Card'
 import { Link } from 'react-router-dom';
 
 const Login = () => {
@@ -26,7 +26,7 @@ const Login = () => {
             <p> &nbsp; Don't have an account? &nbsp;</p>
             <Link to='/register'>Register</Link>
           </span>
-          
+
         </div>
       </Card>
     </div>

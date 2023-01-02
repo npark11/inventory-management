@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Auth.module.scss'
 import { TiUserAddOutline } from 'react-icons/ti'
-import Card from '../../component/Card/Card'
+import Card from '../../components/Card/Card'
 import { Link } from 'react-router-dom';
 
 const Register = () => {
@@ -27,7 +27,7 @@ const Register = () => {
             <p> &nbsp; Already have an account? &nbsp;</p>
             <Link to='/login'>Login</Link>
           </span>
-          
+
         </div>
       </Card>
     </div>

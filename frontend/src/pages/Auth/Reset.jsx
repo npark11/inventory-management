@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Auth.module.scss'
 import { MdPassword } from 'react-icons/md'
-import Card from '../../component/Card/Card'
+import Card from '../../components/Card/Card'
 import { Link } from 'react-router-dom';
 
 const Reset = () => {
@@ -20,16 +20,16 @@ const Reset = () => {
             <button type="submit" className="--btn --btn-primary --btn-block">
               Reset Password
             </button>
-              <div className={styles.links}>
-                <p>
-                  <Link to='/'>- Home</Link>
-                </p>
-                <p>
-                  <Link to='/login'>- Login</Link>
-                </p>
-              </div>
+            <div className={styles.links}>
+              <p>
+                <Link to='/'>- Home</Link>
+              </p>
+              <p>
+                <Link to='/login'>- Login</Link>
+              </p>
+            </div>
           </form>
-          
+
         </div>
       </Card>
     </div>

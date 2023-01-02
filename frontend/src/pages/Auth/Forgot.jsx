@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Auth.module.scss'
 import { AiOutlineMail } from 'react-icons/ai'
-import Card from '../../component/Card/Card'
+import Card from '../../components/Card/Card'
 import { Link } from 'react-router-dom';
 
 const Forgot = () => {
@@ -19,16 +19,16 @@ const Forgot = () => {
             <button type="submit" className="--btn --btn-primary --btn-block">
               Get Reset Email
             </button>
-              <div className={styles.links}>
-                <p>
-                  <Link to='/'>- Home</Link>
-                </p>
-                <p>
-                  <Link to='/login'>- Login</Link>
-                </p>
-              </div>
+            <div className={styles.links}>
+              <p>
+                <Link to='/'>- Home</Link>
+              </p>
+              <p>
+                <Link to='/login'>- Login</Link>
+              </p>
+            </div>
           </form>
-          
+
         </div>
       </Card>
     </div>
